@@ -1,13 +1,30 @@
 library IEEE;
-use IEEE.std_logic_1164.all;
-use IEEE.MATH_REAL.ALL;
+
+--use IEEE.std_logic_1164.all;
+--use IEEE.MATH_REAL.ALL;
+--use ieee.numeric_std.all;
+--use IEEE.fixed_pkg.all;
+--use work.fixed_generic_pkg_mod.all;
+
+--library IEEE_PROPOSED;
+--use ieee_proposed.fixed_float_types.all;
+--use ieee_proposed.fixed_pkg.all;
+
+library IEEE_PROPOSED;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use ieee_proposed.fixed_float_types.all;
+use ieee_proposed.fixed_pkg.all;
+use ieee_proposed.float_pkg.all;
 
 package funtzio_lagungarriak is
+--type fixed is array (integer range <>) of std_logic;
+--subtype fixed32 is fixed (8 to -23);
 
 type complex is 
     record
-        r : real;
-        i : real;
+        r : float32;
+        i : float32;
     end record;
 
 type konplexu_lista16 is array (0 to 15) of complex;
@@ -55,6 +72,7 @@ return bider;
 end biderketa;
 
 end funtzio_lagungarriak;
+
 
 
 

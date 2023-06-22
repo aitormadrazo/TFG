@@ -1,8 +1,17 @@
 library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.MATH_REAL.ALL;
+--use IEEE.STD_LOGIC_1164.ALL;
+--use IEEE.MATH_REAL.ALL;
 library work;
 use work.funtzio_lagungarriak.ALL;
+
+
+library IEEE_PROPOSED;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use ieee_proposed.fixed_float_types.all;
+use ieee_proposed.fixed_pkg.all;
+use ieee_proposed.float_pkg.all;
+
 
 entity fft16 is
 port(   sar : in konplexu_lista16; --sarrera seinalea denbora domeinuan
@@ -20,10 +29,18 @@ component tximeleta is
    );
 end component;  
     
-signal uneko1,uneko2, uneko3 : konplexu_lista16 := (others => (0.0,0.0));
+signal uneko1,uneko2, uneko3 : konplexu_lista16 := (others => (to_float(0.0),to_float(0.0)));
 
 --Fourier tranform formulako W balioak.
-constant w : konplexu_lista8 := ( (1.0,0.0), (0.9238,-0.3826), (0.7071,-0.7071), (0.3826,-0.9238), (0.0,-1.0), (-0.3826,-0.9238), (-0.7071,-0.7071), (-0.9238,-0.3826) );
+constant w : konplexu_lista8 := ( 
+ (to_float(1.0),to_float(0.0)),
+ (to_float(0.9238),to_float(-0.3826)),
+ (to_float(0.7071),to_float(-0.7071)),
+ (to_float(0.3826),to_float(-0.9238)),
+ (to_float(0.0),to_float(-1.0)),
+ (to_float(-0.3826),to_float(-0.9238)),
+ (to_float(-0.7071),to_float(-0.7071)),
+ (to_float(-0.9238),to_float(-0.3826)) );
 
 begin
 

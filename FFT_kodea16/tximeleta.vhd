@@ -3,6 +3,13 @@ use IEEE.STD_LOGIC_1164.ALL;
 library work;
 use work.funtzio_lagungarriak.ALL;
 
+library IEEE_PROPOSED;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use ieee_proposed.fixed_float_types.all;
+use ieee_proposed.fixed_pkg.all;
+use ieee_proposed.float_pkg.all;
+
 entity tximeleta is 
    port(
       sarrera1,sarrera2 : in complex;      --Sarrerak
